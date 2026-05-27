@@ -186,7 +186,7 @@ const BOOKS = [
     tags: ["bash", "shell", "linux", "scripting"],
   },
   {
-    id: "b8",
+    id: "b9",
     title: "Systèmes d'exploitation — Concepts fondamentaux",
     author: "Votre Nom",
     desc: "Processus, threads, mémoire virtuelle, système de fichiers et ordonnancement. Cours universitaire complet avec exercices corrigés.",
@@ -203,7 +203,7 @@ const BOOKS = [
 
   /* ══════════ RÉSEAUX ══════════ */
   {
-    id: "b9",
+    id: "b10",
     title: "Réseaux informatiques — TCP/IP en pratique",
     author: "Votre Nom",
     desc: "Modèle OSI, protocoles TCP/IP, routage, DNS, DHCP et configuration réseau. Des bases théoriques aux manipulations pratiques sous Linux.",
@@ -219,7 +219,7 @@ const BOOKS = [
     featured: true,
   },
   {
-    id: "b10",
+    id: "b11",
     title: "WiFi et sécurité sans fil",
     author: "Votre Nom",
     desc: "Protocoles 802.11, WPA2/WPA3, attaques courantes sur le WiFi et méthodes de sécurisation des réseaux sans fil.",
@@ -236,7 +236,7 @@ const BOOKS = [
 
   /* ══════════ CYBERSÉCURITÉ ══════════ */
   {
-    id: "b11",
+    id: "b12",
     title: "Cybersécurité — Guide du pentester",
     author: "Votre Nom",
     desc: "Méthodologie de tests d'intrusion, reconnaissance, exploitation et rapport. Outils Kali Linux, Metasploit et Burp Suite présentés en détail.",
@@ -252,7 +252,7 @@ const BOOKS = [
     featured: true,
   },
   {
-    id: "b12",
+    id: "b13",
     title: "Cryptographie appliquée",
     author: "Votre Nom",
     desc: "Chiffrement symétrique et asymétrique, hachage, signatures numériques, PKI et TLS. Théorie et implémentation en Python.",
@@ -267,7 +267,7 @@ const BOOKS = [
     tags: ["cryptographie", "TLS", "RSA", "AES"],
   },
   {
-    id: "b13",
+    id: "b14",
     title: "Sécurité des applications web",
     author: "Votre Nom",
     desc: "OWASP Top 10, XSS, injection SQL, CSRF, gestion des sessions et sécurisation des APIs REST. Avec laboratoires pratiques.",
@@ -281,10 +281,26 @@ const BOOKS = [
     link_ext: "https://drive.google.com/drive/u/0/folders/1DqvFPxC3ROZgRndVYsfpX7C7Nqx1CnmL",
     tags: ["web", "OWASP", "XSS", "injection SQL"],
   },
+  {
+    id: "b15",
+    title: "Dark web",
+    author: "Votre Nom",
+    desc: "Dark web Monitoring tools you.",
+    cat: "Cybersécurité",
+    license: "Tous droits réservés",
+    date: "2025-02-01",
+    pages: 520,
+    lang: "Français",
+    cover: "covers/pentest.jpg",
+    link_pdf: "livres/Dark web.pdf",
+    link_ext: "",
+    tags: ["pentest", "sécurité", "kali", "metasploit"],
+    featured: true,
+  },
 
   /* ══════════ BASES DE DONNÉES ══════════ */
   {
-    id: "b14",
+    id: "b16",
     title: "SQL — Du débutant à l'expert",
     author: "Votre Nom",
     desc: "Requêtes SELECT, jointures complexes, sous-requêtes, transactions, procédures stockées et optimisation des performances.",
@@ -300,7 +316,7 @@ const BOOKS = [
     featured: true,
   },
   {
-    id: "b15",
+    id: "b17",
     title: "PostgreSQL — Administration avancée",
     author: "Votre Nom",
     desc: "Installation, configuration, réplication, sauvegardes, monitoring et tuning de performances pour PostgreSQL en production.",
@@ -315,7 +331,7 @@ const BOOKS = [
     tags: ["PostgreSQL", "administration", "réplication"],
   },
   {
-    id: "b16",
+    id: "b18",
     title: "NoSQL — MongoDB et Redis",
     author: "Votre Nom",
     desc: "Modélisation de données non relationnelles, requêtes MongoDB, agrégations et cache distribué avec Redis.",
@@ -332,7 +348,7 @@ const BOOKS = [
 
   /* ══════════ DÉVELOPPEMENT WEB ══════════ */
   {
-    id: "b17",
+    id: "b18",
     title: "HTML & CSS — Fondamentaux du web",
     author: "Votre Nom",
     desc: "Structure sémantique HTML5, mise en page CSS3, Flexbox, Grid et responsive design. Avec 10 projets pratiques.",
@@ -347,7 +363,7 @@ const BOOKS = [
     tags: ["HTML", "CSS", "web", "responsive"],
   },
   {
-    id: "b18",
+    id: "b20",
     title: "JavaScript — Moderne et pratique",
     author: "Votre Nom",
     desc: "ES6+, Promises, async/await, modules, DOM et manipulation d'APIs REST. Du vanilla JS au développement moderne.",
@@ -363,7 +379,7 @@ const BOOKS = [
     featured: true,
   },
   {
-    id: "b19",
+    id: "b21",
     title: "APIs REST — Conception et développement",
     author: "Votre Nom",
     desc: "Design d'APIs RESTful, authentification JWT, documentation Swagger, versioning et bonnes pratiques de sécurité.",
@@ -373,14 +389,14 @@ const BOOKS = [
     pages: 270,
     lang: "Français",
     cover: "covers/api-rest.jpg",
-    link_pdf: "livres/api-rest.pdf",
-    link_ext: "",
+    link_pdf: "",
+    link_ext: "https://drive.google.com/drive/u/0/folders/1p5jc-bYodKcfgLX8UcCf4krctg0xzoFg",
     tags: ["API", "REST", "JWT", "Swagger"],
   },
 
   /* ══════════ DEVOPS / CLOUD ══════════ */
   {
-    id: "b20",
+    id: "b22",
     title: "Docker — De zéro à la production",
     author: "Votre Nom",
     desc: "Images, conteneurs, volumes, réseaux Docker et Docker Compose. Déploiement d'applications multi-services en production.",
@@ -396,7 +412,7 @@ const BOOKS = [
     featured: true,
   },
   {
-    id: "b21",
+    id: "b23",
     title: "Kubernetes — Orchestration de conteneurs",
     author: "Votre Nom",
     desc: "Pods, Deployments, Services, Ingress, ConfigMaps et Secrets. Gestion d'un cluster Kubernetes de A à Z.",
@@ -406,12 +422,12 @@ const BOOKS = [
     pages: 450,
     lang: "Français",
     cover: "covers/kubernetes.jpg",
-    link_pdf: "livres/kubernetes.pdf",
-    link_ext: "",
+    link_pdf: "",
+    link_ext: "https://drive.google.com/drive/u/0/folders/16kF3Xn2DXC0HQLwXi2fGD4YRaet4BrBu",
     tags: ["Kubernetes", "K8s", "orchestration", "cloud"],
   },
   {
-    id: "b22",
+    id: "b24",
     title: "CI/CD avec GitHub Actions",
     author: "Votre Nom",
     desc: "Pipelines d'intégration et déploiement continus, tests automatisés, déploiement sur cloud et gestion des secrets.",
@@ -428,7 +444,7 @@ const BOOKS = [
 
   /* ══════════ INTELLIGENCE ARTIFICIELLE ══════════ */
   {
-    id: "b23",
+    id: "b25",
     title: "Advanced Deep Learning",
     author: "Votre Nom",
     desc: "Régression, classification, clustering, évaluation de modèles et scikit-learn. Du théorème de Bayes aux forêts aléatoires.",
@@ -444,7 +460,7 @@ const BOOKS = [
     featured: true,
   },
   {
-    id: "b24",
+    id: "b26",
     title: "Deep Learning avec TensorFlow et Keras",
     author: "Votre Nom",
     desc: "Réseaux de neurones, CNN, RNN, LSTM et Transformers. Projets de vision par ordinateur et traitement du langage naturel.",
@@ -459,7 +475,7 @@ const BOOKS = [
     tags: ["deep learning", "TensorFlow", "Keras", "CNN", "NLP"],
   },
   {
-    id: "b25",
+    id: "b27",
     title: "Traitement du langage naturel (NLP)",
     author: "Votre Nom",
     desc: "Tokenisation, embeddings, modèles Transformer, BERT et GPT. Applications pratiques : classification de texte, résumé automatique.",
@@ -476,7 +492,7 @@ const BOOKS = [
 
   /* ══════════ MATHÉMATIQUES ══════════ */
   {
-    id: "b26",
+    id: "b28",
     title: "Mathématiques pour l'informatique",
     author: "Votre Nom",
     desc: "Logique, ensembles, combinatoire, probabilités et algèbre linéaire. Bases mathématiques indispensables au développeur.",
@@ -491,7 +507,7 @@ const BOOKS = [
     tags: ["mathématiques", "logique", "probabilités", "algèbre"],
   },
   {
-    id: "b27",
+    id: "b29",
     title: "Algèbre linéaire pour le Machine Learning",
     author: "Votre Nom",
     desc: "Vecteurs, matrices, valeurs propres, décomposition SVD et applications directes aux algorithmes de ML.",
@@ -508,7 +524,7 @@ const BOOKS = [
 
   /* ══════════ MOBILE ══════════ */
   {
-    id: "b28",
+    id: "b30",
     title: "Développement Android avec Kotlin",
     author: "Votre Nom",
     desc: "Architecture MVVM, Jetpack Compose, Room, Retrofit et publication sur le Play Store. Développement Android moderne.",
@@ -523,7 +539,7 @@ const BOOKS = [
     tags: ["Android", "Kotlin", "Jetpack Compose", "mobile"],
   },
   {
-    id: "b29",
+    id: "b31",
     title: "Flutter — Applications cross-platform",
     author: "Votre Nom",
     desc: "Widgets, navigation, gestion d'état avec Riverpod, accès aux APIs et déploiement iOS/Android depuis une seule base de code.",
@@ -540,7 +556,7 @@ const BOOKS = [
 
   /* ══════════ LIENS EXTERNES (exemples) ══════════ */
   {
-    id: "b30",
+    id: "b32",
     title: "The Linux Command Line (William Shotts)",
     author: "William E. Shotts Jr.",
     desc: "Référence complète sur la ligne de commande Linux. Disponible gratuitement en ligne sous licence Creative Commons.",
@@ -555,7 +571,7 @@ const BOOKS = [
     tags: ["linux", "terminal", "bash", "commandes"],
   },
   {
-    id: "b31",
+    id: "b33",
     title: "Pro Git (Scott Chacon)",
     author: "Scott Chacon & Ben Straub",
     desc: "Le livre de référence sur Git, disponible gratuitement. Couvre tous les aspects de Git du débutant à l'expert.",
@@ -570,7 +586,7 @@ const BOOKS = [
     tags: ["git", "versionning", "GitHub"],
   },
   {
-    id: "b32",
+    id: "b34",
     title: "Eloquent JavaScript (Marijn Haverbeke)",
     author: "Marijn Haverbeke",
     desc: "Introduction approfondie à JavaScript et à la programmation. Disponible gratuitement en ligne sous licence CC.",
