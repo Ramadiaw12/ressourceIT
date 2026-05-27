@@ -38,11 +38,11 @@ LICENCES :
    ════════════════════════════════════════ */
 const SITE_INFO = {
   name:     "TechShare",
-  owner:    "Votre Nom",
+  owner:    "DIAWANE_R",
   tagline:  "Toutes mes ressources informatiques en un seul endroit",
   email:    "votre@email.com",
-  github:   "https://github.com/votreprofil",
-  linkedin: "https://linkedin.com/in/votreprofil",
+  github:   "https://github.com/Ramadiaw12",
+  linkedin: "https://www.linkedin.com/in/ramatoulaye-diawane/",
 };
 
 /* ════════════════════════════════════════════════════════════════════
