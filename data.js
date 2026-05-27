@@ -502,9 +502,9 @@ const BOOKS = [
     pages: 420,
     lang: "Français",
     cover: "covers/maths.jpg",
-    link_pdf: "livres/maths-informatique.pdf",
-    link_ext: "",
-    tags: ["mathématiques", "logique", "probabilités", "algèbre"],
+    link_pdf: "",
+    link_ext: "https://drive.google.com/drive/u/0/folders/1CgN7DE3pNRNh_4BA_zrrMLqWz6KquwuD",
+    tags: ["Big data", "Advanced Deep Learning", "Artificial Intelligence", "algèbre"],
   },
   {
     id: "b29",
@@ -601,26 +601,6 @@ const BOOKS = [
     tags: ["JavaScript", "programmation", "débutant"],
   },
 
-  /* ══════════════════════════════════════════════════════════════
-     AJOUTEZ VOS LIVRES ICI — copiez et remplissez ce bloc :
-
-  {
-    id: "b33",
-    title: "Titre de votre livre",
-    author: "Auteur du livre",
-    desc: "Description courte du livre.",
-    cat: "Votre Catégorie",
-    license: "CC BY 4.0",
-    date: "2025-01-01",
-    pages: 300,
-    lang: "Français",
-    cover: "covers/mon-livre.jpg",
-    link_pdf: "livres/mon-livre.pdf",
-    link_ext: "",
-    tags: ["tag1", "tag2"],
-  },
-
-     ══════════════════════════════════════════════════════════════ */
 ];
 
 /* ════════════════════════════════════════════════════════════════
