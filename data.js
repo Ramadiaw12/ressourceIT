@@ -1,53 +1,602 @@
 /*
 ╔══════════════════════════════════════════════════════════════════════╗
-║                          data.js — VOS DONNÉES                      ║
+║                     data.js — VOS DONNÉES                           ║
 ║                                                                      ║
-║  Ce fichier contient TOUTES vos ressources.                          ║
-║  Pour ajouter une ressource, copiez un bloc { ... } et remplissez.  ║
-║  Pour supprimer, effacez le bloc.                                    ║
+║  LIVRES : remplissez le tableau BOOKS ci-dessous                     ║
+║  AUTRES RESSOURCES : remplissez le tableau RESOURCES                 ║
 ╚══════════════════════════════════════════════════════════════════════╝
 
-CHAMPS OBLIGATOIRES :
-  id       → numéro unique (incrémentez à chaque ajout)
-  title    → titre de la ressource
-  desc     → courte description (2-3 phrases max)
-  type     → "Cours" | "Documentation" | "Outil" | "Article" | "Vidéo" | "Livre" | "Autre"
-  cat      → catégorie libre (ex: "Python", "Linux", "Cybersécurité"...)
-  license  → voir la liste ci-dessous
-  date     → "YYYY-MM-DD"
-  link     → URL vers le fichier ou page externe (ou chemin local ex: "fichiers/cours.pdf")
+CHAMPS LIVRE :
+  id          → numéro unique
+  title       → titre complet du livre
+  author      → auteur(s)
+  desc        → résumé court (2-3 phrases)
+  cat         → catégorie (ex: "Python", "Réseau", "Sécurité"...)
+  license     → voir liste des licences ci-dessous
+  date        → "YYYY-MM-DD" (date d'ajout)
+  pages       → nombre de pages (optionnel)
+  edition     → "2e édition" (optionnel)
+  lang        → "Français" | "Anglais" | "Arabe" (optionnel, défaut: Français)
+  cover       → chemin vers image de couverture (ex: "covers/python.jpg") — optionnel
+  link_pdf    → chemin PDF local    ex: "livres/python-avance.pdf"
+  link_ext    → lien externe        ex: "https://drive.google.com/..."
+               (vous pouvez mettre les deux, ou un seul)
+  tags        → ["tag1", "tag2"] pour la recherche
+  featured    → true  pour l'afficher en vedette (optionnel)
 
-CHAMPS OPTIONNELS :
-  terms    → conditions d'utilisation personnalisées (si vide, auto-généré depuis la licence)
-  tags     → ["tag1", "tag2"] pour la recherche
-
-LICENCES DISPONIBLES :
-  "CC BY 4.0"   → Attribution obligatoire, usage libre
-  "CC BY-NC"    → Attribution, non commercial
-  "CC BY-SA"    → Attribution, partage identique
-  "CC BY-ND"    → Attribution, pas de modification
-  "MIT"         → Très permissif, usage libre
-  "GPL v3"      → Copyleft fort
-  "Apache 2.0"  → Permissif, usage commercial ok
-  "Tous droits réservés" → Consultation uniquement
+LICENCES :
+  "CC BY 4.0"           → Attribution libre
+  "CC BY-NC"            → Non commercial
+  "CC BY-SA"            → Partage identique
+  "CC BY-ND"            → Pas de modification
+  "Tous droits réservés"→ Consultation uniquement
+  "Domaine public"      → Aucune restriction
 */
 
+/* ════════════════════════════════════════
+   INFORMATIONS DU SITE
+   ════════════════════════════════════════ */
 const SITE_INFO = {
-  name: "TechShare",           /* Nom du site */
-  owner: "Votre Nom",          /* Votre nom */
-  tagline: "Toutes mes ressources informatiques en un seul endroit",
-  email: "votre@email.com",
-  github: "https://github.com/votreprofil",
+  name:     "TechShare",
+  owner:    "Votre Nom",
+  tagline:  "Toutes mes ressources informatiques en un seul endroit",
+  email:    "votre@email.com",
+  github:   "https://github.com/votreprofil",
   linkedin: "https://linkedin.com/in/votreprofil",
 };
 
+/* ════════════════════════════════════════════════════════════════════
+   📚 LIVRES — Remplacez les exemples par vos vrais livres
+   ════════════════════════════════════════════════════════════════════
+   ⚠️  Pour chaque livre :
+       - Mettez les PDF dans le dossier  /livres/
+       - Mettez les couvertures dans     /covers/
+       - Remplissez link_pdf ET/OU link_ext
+   ════════════════════════════════════════════════════════════════════ */
+
+const BOOKS = [
+
+  /* ══════════ PYTHON ══════════ */
+  {
+    id: "b1",
+    title: "Python — Apprenez à programmer",
+    author: "Vincent Le Goff",
+    desc: "Le guide idéal pour débuter la programmation avec Python. Variables, fonctions, classes et modules expliqués pas à pas avec des exercices pratiques.",
+    cat: "Python",
+    license: "CC BY-NC",
+    date: "2024-09-01",
+    pages: 420,
+    lang: "Français",
+    cover: "covers/python-apprendre.jpg",
+    link_pdf: "livres/python-apprendre.pdf",
+    link_ext: "",
+    tags: ["python", "débutant", "programmation"],
+    featured: true,
+  },
+  {
+    id: "b2",
+    title: "Python avancé — Techniques de pro",
+    author: "Votre Nom",
+    desc: "Décorateurs, générateurs, métaclasses, concurrence et optimisation. Pour les développeurs Python qui veulent passer au niveau supérieur.",
+    cat: "Python",
+    license: "CC BY 4.0",
+    date: "2024-10-15",
+    pages: 310,
+    lang: "Français",
+    cover: "covers/python-avance.jpg",
+    link_pdf: "livres/python-avance.pdf",
+    link_ext: "",
+    tags: ["python", "avancé", "optimisation"],
+    featured: true,
+  },
+  {
+    id: "b3",
+    title: "Automatisation avec Python",
+    author: "Votre Nom",
+    desc: "Scripts d'automatisation, manipulation de fichiers, scraping web et interactions avec les APIs. Gagnez du temps en automatisant vos tâches répétitives.",
+    cat: "Python",
+    license: "CC BY 4.0",
+    date: "2024-11-20",
+    pages: 280,
+    lang: "Français",
+    cover: "covers/python-auto.jpg",
+    link_pdf: "livres/python-automatisation.pdf",
+    link_ext: "",
+    tags: ["python", "automatisation", "scripting"],
+  },
+
+  /* ══════════ ALGORITHMES ══════════ */
+  {
+    id: "b4",
+    title: "Algorithmes et structures de données",
+    author: "Votre Nom",
+    desc: "Les algorithmes fondamentaux : tri, recherche, graphes, arbres. Analyse de complexité et implémentations en Python et C++.",
+    cat: "Algorithmique",
+    license: "CC BY-NC",
+    date: "2024-08-05",
+    pages: 380,
+    lang: "Français",
+    cover: "covers/algos.jpg",
+    link_pdf: "livres/algorithmes-structures-donnees.pdf",
+    link_ext: "",
+    tags: ["algorithmes", "structures de données", "complexité"],
+    featured: true,
+  },
+  {
+    id: "b5",
+    title: "Introduction à la théorie des graphes",
+    author: "Votre Nom",
+    desc: "Concepts fondamentaux des graphes appliqués à l'informatique : parcours, plus courts chemins, arbres couvrants et réseaux de flots.",
+    cat: "Algorithmique",
+    license: "CC BY-SA",
+    date: "2024-07-12",
+    pages: 220,
+    lang: "Français",
+    cover: "covers/graphes.jpg",
+    link_pdf: "livres/theorie-graphes.pdf",
+    link_ext: "",
+    tags: ["graphes", "algorithmes", "mathématiques"],
+  },
+
+  /* ══════════ LINUX / SYSTÈMES ══════════ */
+  {
+    id: "b6",
+    title: "Linux — Administration système",
+    author: "Votre Nom",
+    desc: "Installation, configuration, gestion des utilisateurs, services systemd, cron, et maintenance d'un serveur Linux en production.",
+    cat: "Linux",
+    license: "CC BY 4.0",
+    date: "2025-01-10",
+    pages: 460,
+    lang: "Français",
+    cover: "covers/linux-admin.jpg",
+    link_pdf: "livres/linux-administration.pdf",
+    link_ext: "",
+    tags: ["linux", "administration", "serveur", "systemd"],
+    featured: true,
+  },
+  {
+    id: "b7",
+    title: "Bash — Scripts shell avancés",
+    author: "Votre Nom",
+    desc: "Maîtriser Bash pour l'automatisation : variables, boucles, fonctions, expressions régulières et gestion des processus.",
+    cat: "Linux",
+    license: "CC BY 4.0",
+    date: "2024-12-03",
+    pages: 195,
+    lang: "Français",
+    cover: "covers/bash.jpg",
+    link_pdf: "livres/bash-avance.pdf",
+    link_ext: "",
+    tags: ["bash", "shell", "linux", "scripting"],
+  },
+  {
+    id: "b8",
+    title: "Systèmes d'exploitation — Concepts fondamentaux",
+    author: "Votre Nom",
+    desc: "Processus, threads, mémoire virtuelle, système de fichiers et ordonnancement. Cours universitaire complet avec exercices corrigés.",
+    cat: "Linux",
+    license: "CC BY-NC",
+    date: "2024-06-20",
+    pages: 350,
+    lang: "Français",
+    cover: "covers/os.jpg",
+    link_pdf: "livres/systemes-exploitation.pdf",
+    link_ext: "",
+    tags: ["OS", "processus", "mémoire", "université"],
+  },
+
+  /* ══════════ RÉSEAUX ══════════ */
+  {
+    id: "b9",
+    title: "Réseaux informatiques — TCP/IP en pratique",
+    author: "Votre Nom",
+    desc: "Modèle OSI, protocoles TCP/IP, routage, DNS, DHCP et configuration réseau. Des bases théoriques aux manipulations pratiques sous Linux.",
+    cat: "Réseau",
+    license: "CC BY-NC",
+    date: "2024-05-14",
+    pages: 400,
+    lang: "Français",
+    cover: "covers/reseaux.jpg",
+    link_pdf: "livres/reseaux-tcp-ip.pdf",
+    link_ext: "",
+    tags: ["réseau", "TCP/IP", "DNS", "routage"],
+    featured: true,
+  },
+  {
+    id: "b10",
+    title: "WiFi et sécurité sans fil",
+    author: "Votre Nom",
+    desc: "Protocoles 802.11, WPA2/WPA3, attaques courantes sur le WiFi et méthodes de sécurisation des réseaux sans fil.",
+    cat: "Réseau",
+    license: "CC BY-NC",
+    date: "2024-09-28",
+    pages: 180,
+    lang: "Français",
+    cover: "covers/wifi.jpg",
+    link_pdf: "livres/wifi-securite.pdf",
+    link_ext: "",
+    tags: ["wifi", "sécurité", "802.11", "WPA"],
+  },
+
+  /* ══════════ CYBERSÉCURITÉ ══════════ */
+  {
+    id: "b11",
+    title: "Cybersécurité — Guide du pentester",
+    author: "Votre Nom",
+    desc: "Méthodologie de tests d'intrusion, reconnaissance, exploitation et rapport. Outils Kali Linux, Metasploit et Burp Suite présentés en détail.",
+    cat: "Cybersécurité",
+    license: "Tous droits réservés",
+    date: "2025-02-01",
+    pages: 520,
+    lang: "Français",
+    cover: "covers/pentest.jpg",
+    link_pdf: "livres/guide-pentester.pdf",
+    link_ext: "",
+    tags: ["pentest", "sécurité", "kali", "metasploit"],
+    featured: true,
+  },
+  {
+    id: "b12",
+    title: "Cryptographie appliquée",
+    author: "Votre Nom",
+    desc: "Chiffrement symétrique et asymétrique, hachage, signatures numériques, PKI et TLS. Théorie et implémentation en Python.",
+    cat: "Cybersécurité",
+    license: "CC BY-NC",
+    date: "2024-11-05",
+    pages: 290,
+    lang: "Français",
+    cover: "covers/crypto.jpg",
+    link_pdf: "livres/cryptographie-appliquee.pdf",
+    link_ext: "",
+    tags: ["cryptographie", "TLS", "RSA", "AES"],
+  },
+  {
+    id: "b13",
+    title: "Sécurité des applications web",
+    author: "Votre Nom",
+    desc: "OWASP Top 10, XSS, injection SQL, CSRF, gestion des sessions et sécurisation des APIs REST. Avec laboratoires pratiques.",
+    cat: "Cybersécurité",
+    license: "CC BY-NC",
+    date: "2024-10-22",
+    pages: 340,
+    lang: "Français",
+    cover: "covers/secu-web.jpg",
+    link_pdf: "livres/securite-web.pdf",
+    link_ext: "",
+    tags: ["web", "OWASP", "XSS", "injection SQL"],
+  },
+
+  /* ══════════ BASES DE DONNÉES ══════════ */
+  {
+    id: "b14",
+    title: "SQL — Du débutant à l'expert",
+    author: "Votre Nom",
+    desc: "Requêtes SELECT, jointures complexes, sous-requêtes, transactions, procédures stockées et optimisation des performances.",
+    cat: "Bases de données",
+    license: "CC BY 4.0",
+    date: "2024-08-18",
+    pages: 310,
+    lang: "Français",
+    cover: "covers/sql.jpg",
+    link_pdf: "livres/sql-complet.pdf",
+    link_ext: "",
+    tags: ["SQL", "base de données", "requêtes"],
+    featured: true,
+  },
+  {
+    id: "b15",
+    title: "PostgreSQL — Administration avancée",
+    author: "Votre Nom",
+    desc: "Installation, configuration, réplication, sauvegardes, monitoring et tuning de performances pour PostgreSQL en production.",
+    cat: "Bases de données",
+    license: "CC BY 4.0",
+    date: "2025-01-25",
+    pages: 380,
+    lang: "Français",
+    cover: "covers/postgresql.jpg",
+    link_pdf: "livres/postgresql-admin.pdf",
+    link_ext: "",
+    tags: ["PostgreSQL", "administration", "réplication"],
+  },
+  {
+    id: "b16",
+    title: "NoSQL — MongoDB et Redis",
+    author: "Votre Nom",
+    desc: "Modélisation de données non relationnelles, requêtes MongoDB, agrégations et cache distribué avec Redis.",
+    cat: "Bases de données",
+    license: "CC BY-NC",
+    date: "2024-07-30",
+    pages: 250,
+    lang: "Français",
+    cover: "covers/nosql.jpg",
+    link_pdf: "livres/nosql-mongodb-redis.pdf",
+    link_ext: "",
+    tags: ["NoSQL", "MongoDB", "Redis", "base de données"],
+  },
+
+  /* ══════════ DÉVELOPPEMENT WEB ══════════ */
+  {
+    id: "b17",
+    title: "HTML & CSS — Fondamentaux du web",
+    author: "Votre Nom",
+    desc: "Structure sémantique HTML5, mise en page CSS3, Flexbox, Grid et responsive design. Avec 10 projets pratiques.",
+    cat: "Web",
+    license: "CC BY 4.0",
+    date: "2024-04-10",
+    pages: 360,
+    lang: "Français",
+    cover: "covers/html-css.jpg",
+    link_pdf: "livres/html-css.pdf",
+    link_ext: "",
+    tags: ["HTML", "CSS", "web", "responsive"],
+  },
+  {
+    id: "b18",
+    title: "JavaScript — Moderne et pratique",
+    author: "Votre Nom",
+    desc: "ES6+, Promises, async/await, modules, DOM et manipulation d'APIs REST. Du vanilla JS au développement moderne.",
+    cat: "Web",
+    license: "CC BY 4.0",
+    date: "2024-05-20",
+    pages: 420,
+    lang: "Français",
+    cover: "covers/javascript.jpg",
+    link_pdf: "livres/javascript-moderne.pdf",
+    link_ext: "",
+    tags: ["JavaScript", "ES6", "async", "DOM"],
+    featured: true,
+  },
+  {
+    id: "b19",
+    title: "APIs REST — Conception et développement",
+    author: "Votre Nom",
+    desc: "Design d'APIs RESTful, authentification JWT, documentation Swagger, versioning et bonnes pratiques de sécurité.",
+    cat: "Web",
+    license: "CC BY-NC",
+    date: "2024-09-15",
+    pages: 270,
+    lang: "Français",
+    cover: "covers/api-rest.jpg",
+    link_pdf: "livres/api-rest.pdf",
+    link_ext: "",
+    tags: ["API", "REST", "JWT", "Swagger"],
+  },
+
+  /* ══════════ DEVOPS / CLOUD ══════════ */
+  {
+    id: "b20",
+    title: "Docker — De zéro à la production",
+    author: "Votre Nom",
+    desc: "Images, conteneurs, volumes, réseaux Docker et Docker Compose. Déploiement d'applications multi-services en production.",
+    cat: "DevOps",
+    license: "CC BY 4.0",
+    date: "2025-01-08",
+    pages: 300,
+    lang: "Français",
+    cover: "covers/docker.jpg",
+    link_pdf: "livres/docker-production.pdf",
+    link_ext: "",
+    tags: ["Docker", "conteneurs", "DevOps"],
+    featured: true,
+  },
+  {
+    id: "b21",
+    title: "Kubernetes — Orchestration de conteneurs",
+    author: "Votre Nom",
+    desc: "Pods, Deployments, Services, Ingress, ConfigMaps et Secrets. Gestion d'un cluster Kubernetes de A à Z.",
+    cat: "DevOps",
+    license: "CC BY-NC",
+    date: "2025-02-14",
+    pages: 450,
+    lang: "Français",
+    cover: "covers/kubernetes.jpg",
+    link_pdf: "livres/kubernetes.pdf",
+    link_ext: "",
+    tags: ["Kubernetes", "K8s", "orchestration", "cloud"],
+  },
+  {
+    id: "b22",
+    title: "CI/CD avec GitHub Actions",
+    author: "Votre Nom",
+    desc: "Pipelines d'intégration et déploiement continus, tests automatisés, déploiement sur cloud et gestion des secrets.",
+    cat: "DevOps",
+    license: "CC BY 4.0",
+    date: "2024-12-20",
+    pages: 220,
+    lang: "Français",
+    cover: "covers/cicd.jpg",
+    link_pdf: "livres/cicd-github-actions.pdf",
+    link_ext: "",
+    tags: ["CI/CD", "GitHub Actions", "DevOps", "automatisation"],
+  },
+
+  /* ══════════ INTELLIGENCE ARTIFICIELLE ══════════ */
+  {
+    id: "b23",
+    title: "Machine Learning — Fondements et pratique",
+    author: "Votre Nom",
+    desc: "Régression, classification, clustering, évaluation de modèles et scikit-learn. Du théorème de Bayes aux forêts aléatoires.",
+    cat: "Intelligence Artificielle",
+    license: "CC BY-NC",
+    date: "2024-11-30",
+    pages: 490,
+    lang: "Français",
+    cover: "covers/ml.jpg",
+    link_pdf: "livres/machine-learning.pdf",
+    link_ext: "",
+    tags: ["machine learning", "IA", "scikit-learn", "classification"],
+    featured: true,
+  },
+  {
+    id: "b24",
+    title: "Deep Learning avec TensorFlow et Keras",
+    author: "Votre Nom",
+    desc: "Réseaux de neurones, CNN, RNN, LSTM et Transformers. Projets de vision par ordinateur et traitement du langage naturel.",
+    cat: "Intelligence Artificielle",
+    license: "CC BY-NC",
+    date: "2025-01-20",
+    pages: 560,
+    lang: "Français",
+    cover: "covers/deeplearning.jpg",
+    link_pdf: "livres/deep-learning.pdf",
+    link_ext: "",
+    tags: ["deep learning", "TensorFlow", "Keras", "CNN", "NLP"],
+  },
+  {
+    id: "b25",
+    title: "Traitement du langage naturel (NLP)",
+    author: "Votre Nom",
+    desc: "Tokenisation, embeddings, modèles Transformer, BERT et GPT. Applications pratiques : classification de texte, résumé automatique.",
+    cat: "Intelligence Artificielle",
+    license: "CC BY-NC",
+    date: "2025-02-28",
+    pages: 380,
+    lang: "Français",
+    cover: "covers/nlp.jpg",
+    link_pdf: "livres/nlp.pdf",
+    link_ext: "",
+    tags: ["NLP", "BERT", "Transformers", "langage naturel"],
+  },
+
+  /* ══════════ MATHÉMATIQUES ══════════ */
+  {
+    id: "b26",
+    title: "Mathématiques pour l'informatique",
+    author: "Votre Nom",
+    desc: "Logique, ensembles, combinatoire, probabilités et algèbre linéaire. Bases mathématiques indispensables au développeur.",
+    cat: "Mathématiques",
+    license: "CC BY-SA",
+    date: "2024-03-15",
+    pages: 420,
+    lang: "Français",
+    cover: "covers/maths.jpg",
+    link_pdf: "livres/maths-informatique.pdf",
+    link_ext: "",
+    tags: ["mathématiques", "logique", "probabilités", "algèbre"],
+  },
+  {
+    id: "b27",
+    title: "Algèbre linéaire pour le Machine Learning",
+    author: "Votre Nom",
+    desc: "Vecteurs, matrices, valeurs propres, décomposition SVD et applications directes aux algorithmes de ML.",
+    cat: "Mathématiques",
+    license: "CC BY-SA",
+    date: "2024-04-22",
+    pages: 250,
+    lang: "Français",
+    cover: "covers/algebre.jpg",
+    link_pdf: "livres/algebre-lineaire-ml.pdf",
+    link_ext: "",
+    tags: ["algèbre", "matrices", "ML", "SVD"],
+  },
+
+  /* ══════════ MOBILE ══════════ */
+  {
+    id: "b28",
+    title: "Développement Android avec Kotlin",
+    author: "Votre Nom",
+    desc: "Architecture MVVM, Jetpack Compose, Room, Retrofit et publication sur le Play Store. Développement Android moderne.",
+    cat: "Mobile",
+    license: "CC BY-NC",
+    date: "2024-06-10",
+    pages: 430,
+    lang: "Français",
+    cover: "covers/android.jpg",
+    link_pdf: "livres/android-kotlin.pdf",
+    link_ext: "",
+    tags: ["Android", "Kotlin", "Jetpack Compose", "mobile"],
+  },
+  {
+    id: "b29",
+    title: "Flutter — Applications cross-platform",
+    author: "Votre Nom",
+    desc: "Widgets, navigation, gestion d'état avec Riverpod, accès aux APIs et déploiement iOS/Android depuis une seule base de code.",
+    cat: "Mobile",
+    license: "CC BY 4.0",
+    date: "2024-08-25",
+    pages: 370,
+    lang: "Français",
+    cover: "covers/flutter.jpg",
+    link_pdf: "livres/flutter.pdf",
+    link_ext: "",
+    tags: ["Flutter", "Dart", "cross-platform", "mobile"],
+  },
+
+  /* ══════════ LIENS EXTERNES (exemples) ══════════ */
+  {
+    id: "b30",
+    title: "The Linux Command Line (William Shotts)",
+    author: "William E. Shotts Jr.",
+    desc: "Référence complète sur la ligne de commande Linux. Disponible gratuitement en ligne sous licence Creative Commons.",
+    cat: "Linux",
+    license: "CC BY-NC-SA",
+    date: "2024-01-01",
+    pages: 540,
+    lang: "Anglais",
+    cover: "covers/linux-cli.jpg",
+    link_pdf: "",
+    link_ext: "https://linuxcommand.org/tlcl.php",
+    tags: ["linux", "terminal", "bash", "commandes"],
+  },
+  {
+    id: "b31",
+    title: "Pro Git (Scott Chacon)",
+    author: "Scott Chacon & Ben Straub",
+    desc: "Le livre de référence sur Git, disponible gratuitement. Couvre tous les aspects de Git du débutant à l'expert.",
+    cat: "DevOps",
+    license: "CC BY-NC-SA",
+    date: "2024-01-01",
+    pages: 440,
+    lang: "Français",
+    cover: "covers/progit.jpg",
+    link_pdf: "",
+    link_ext: "https://git-scm.com/book/fr/v2",
+    tags: ["git", "versionning", "GitHub"],
+  },
+  {
+    id: "b32",
+    title: "Eloquent JavaScript (Marijn Haverbeke)",
+    author: "Marijn Haverbeke",
+    desc: "Introduction approfondie à JavaScript et à la programmation. Disponible gratuitement en ligne sous licence CC.",
+    cat: "Web",
+    license: "CC BY-NC",
+    date: "2024-01-01",
+    pages: 472,
+    lang: "Anglais",
+    cover: "covers/eloquent-js.jpg",
+    link_pdf: "",
+    link_ext: "https://eloquentjavascript.net",
+    tags: ["JavaScript", "programmation", "débutant"],
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     AJOUTEZ VOS LIVRES ICI — copiez et remplissez ce bloc :
+
+  {
+    id: "b33",
+    title: "Titre de votre livre",
+    author: "Auteur du livre",
+    desc: "Description courte du livre.",
+    cat: "Votre Catégorie",
+    license: "CC BY 4.0",
+    date: "2025-01-01",
+    pages: 300,
+    lang: "Français",
+    cover: "covers/mon-livre.jpg",
+    link_pdf: "livres/mon-livre.pdf",
+    link_ext: "",
+    tags: ["tag1", "tag2"],
+  },
+
+     ══════════════════════════════════════════════════════════════ */
+];
+
 /* ════════════════════════════════════════════════════════════════
-   RESSOURCES — Modifiez, ajoutez, supprimez des blocs ci-dessous
+   AUTRES RESSOURCES (cours, docs, outils, articles...)
    ════════════════════════════════════════════════════════════════ */
 
 const RESOURCES = [
-
-  /* ── EXEMPLE 1 ── */
   {
     id: 1,
     title: "Introduction à Python — cours complet",
@@ -56,11 +605,9 @@ const RESOURCES = [
     cat: "Python",
     license: "CC BY 4.0",
     date: "2024-11-15",
-    link: "fichiers/python-intro.pdf",   /* ← Mettez votre fichier dans le dossier /fichiers */
+    link: "fichiers/python-intro.pdf",
     tags: ["python", "débutant", "programmation"],
   },
-
-  /* ── EXEMPLE 2 ── */
   {
     id: 2,
     title: "Guide Git & GitHub — workflows professionnels",
@@ -72,22 +619,17 @@ const RESOURCES = [
     link: "https://votresite.com/git-guide",
     tags: ["git", "github", "versionning"],
   },
-
-  /* ── EXEMPLE 3 ── */
   {
     id: 3,
     title: "Algorithmes de tri — visualisation & explications",
-    desc: "Article illustré sur les principaux algorithmes de tri (bulles, fusion, rapide, insertion) avec complexité et cas d'usage.",
+    desc: "Article illustré sur les principaux algorithmes de tri avec complexité et cas d'usage.",
     type: "Article",
     cat: "Algorithmique",
     license: "CC BY-NC",
     date: "2024-09-20",
     link: "articles/tri-algorithmes.html",
     tags: ["algorithme", "tri", "complexité"],
-    terms: "Usage personnel et éducatif uniquement. Toute diffusion commerciale est interdite.",
   },
-
-  /* ── EXEMPLE 4 ── */
   {
     id: 4,
     title: "Script Python — nettoyage automatique de fichiers",
@@ -99,8 +641,6 @@ const RESOURCES = [
     link: "https://github.com/votreprofil/file-cleaner",
     tags: ["script", "automatisation", "cli"],
   },
-
-  /* ── EXEMPLE 5 ── */
   {
     id: 5,
     title: "Bases de données SQL — guide pratique",
@@ -112,99 +652,42 @@ const RESOURCES = [
     link: "fichiers/sql-guide.pdf",
     tags: ["sql", "postgresql", "database"],
   },
-
-  /* ── EXEMPLE 6 ── */
-  {
-    id: 6,
-    title: "Cybersécurité — introduction aux attaques web",
-    desc: "Présentation des attaques courantes : XSS, SQL injection, CSRF, avec démonstrations en environnement contrôlé.",
-    type: "Cours",
-    cat: "Cybersécurité",
-    license: "CC BY-NC",
-    date: "2025-03-01",
-    link: "fichiers/cybersec-intro.pdf",
-    tags: ["sécurité", "web", "xss", "sql injection"],
-    terms: "Usage éducatif uniquement. Ne pas utiliser sur des systèmes sans autorisation.",
-  },
-
-  /* ── EXEMPLE 7 ── */
-  {
-    id: 7,
-    title: "Linux pour développeurs — commandes essentielles",
-    desc: "Mémo complet des commandes Linux les plus utilisées en développement : navigation, droits, processus, réseau, Vim.",
-    type: "Documentation",
-    cat: "Linux",
-    license: "CC BY 4.0",
-    date: "2025-01-22",
-    link: "fichiers/linux-cheatsheet.pdf",
-    tags: ["linux", "terminal", "bash", "commandes"],
-  },
-
-  /* ── EXEMPLE 8 ── */
-  {
-    id: 8,
-    title: "Introduction au Machine Learning",
-    desc: "Support de cours universitaire couvrant la régression, la classification, le clustering et les réseaux de neurones.",
-    type: "Cours",
-    cat: "Intelligence Artificielle",
-    license: "CC BY-NC",
-    date: "2024-12-05",
-    link: "fichiers/ml-intro.pdf",
-    tags: ["machine learning", "IA", "python", "scikit-learn"],
-  },
-
-  /* ══════════════════════════════════════════════
-     AJOUTEZ VOS RESSOURCES ICI — copiez ce bloc :
-
-  {
-    id: 9,
-    title: "Titre de votre ressource",
-    desc: "Description courte et claire.",
-    type: "Cours",
-    cat: "Ma catégorie",
-    license: "CC BY 4.0",
-    date: "2025-01-01",
-    link: "fichiers/mon-fichier.pdf",
-    tags: ["tag1", "tag2"],
-  },
-
-     ══════════════════════════════════════════════ */
-
+  /* Ajoutez d'autres ressources ici... */
 ];
 
-
-/* ════════════════════════════════════════════════════════════════
-   CATÉGORIES — icônes personnalisables (Tabler Icons)
-   Ajoutez une entrée si vous créez une nouvelle catégorie
-   ════════════════════════════════════════════════════════════════ */
-
+/* ════════════════════════════════════════
+   ICÔNES DES CATÉGORIES
+   ════════════════════════════════════════ */
 const CATEGORY_ICONS = {
-  "Python":               "ti-brand-python",
-  "JavaScript":           "ti-brand-javascript",
-  "DevOps":               "ti-server",
-  "Linux":                "ti-brand-ubuntu",
-  "Algorithmique":        "ti-chart-dots",
-  "Bases de données":     "ti-database",
-  "Cybersécurité":        "ti-shield-lock",
+  "Python":                    "ti-brand-python",
+  "JavaScript":                "ti-brand-javascript",
+  "DevOps":                    "ti-server",
+  "Linux":                     "ti-brand-ubuntu",
+  "Algorithmique":             "ti-chart-dots",
+  "Bases de données":          "ti-database",
+  "Cybersécurité":             "ti-shield-lock",
   "Intelligence Artificielle": "ti-brain",
-  "Réseau":               "ti-network",
-  "Web":                  "ti-world",
-  "Mobile":               "ti-device-mobile",
-  "Cloud":                "ti-cloud",
-  "Autre":                "ti-folder",
+  "Réseau":                    "ti-network",
+  "Web":                       "ti-world",
+  "Mobile":                    "ti-device-mobile",
+  "DevOps":                    "ti-server",
+  "Mathématiques":             "ti-math-function",
+  "Cloud":                     "ti-cloud",
+  "Autre":                     "ti-folder",
 };
 
-/* ════════════════════════════════════════════════════════════════
-   LICENCES — descriptions et conditions automatiques
-   ════════════════════════════════════════════════════════════════ */
-
+/* ════════════════════════════════════════
+   LICENCES
+   ════════════════════════════════════════ */
 const LICENSE_INFO = {
-  "CC BY 4.0":           { cls: "lic-open", terms: "Vous pouvez utiliser, modifier et redistribuer ce contenu librement, à condition de citer l'auteur original." },
-  "CC BY-NC":            { cls: "lic-nc",   terms: "Usage non commercial uniquement. Attribution obligatoire. Pas de revente ni d'intégration dans un produit commercial." },
-  "CC BY-SA":            { cls: "lic-cc",   terms: "Vous pouvez redistribuer et modifier ce contenu, sous la même licence et avec attribution." },
-  "CC BY-ND":            { cls: "lic-cc",   terms: "Redistribution permise avec attribution, mais sans modification du contenu original." },
-  "MIT":                 { cls: "lic-open", terms: "Usage libre, y compris commercial. Conservez la notice de licence dans vos distributions." },
-  "GPL v3":              { cls: "lic-open", terms: "Logiciel libre. Toute modification doit être redistribuée sous la même licence GPL v3." },
-  "Apache 2.0":          { cls: "lic-open", terms: "Usage libre et commercial autorisé. Conservez la notice Apache dans vos distributions." },
-  "Tous droits réservés": { cls: "lic-reserve", terms: "Ce contenu est protégé. Consultation uniquement. Toute reproduction, modification ou redistribution est interdite sans accord préalable." },
+  "CC BY 4.0":           { cls: "lic-open",    terms: "Usage libre avec attribution obligatoire." },
+  "CC BY-NC":            { cls: "lic-nc",      terms: "Usage non commercial. Attribution obligatoire." },
+  "CC BY-SA":            { cls: "lic-cc",      terms: "Redistribution sous la même licence avec attribution." },
+  "CC BY-ND":            { cls: "lic-cc",      terms: "Redistribution permise sans modification, avec attribution." },
+  "CC BY-NC-SA":         { cls: "lic-nc",      terms: "Non commercial, partage identique." },
+  "MIT":                 { cls: "lic-open",    terms: "Usage libre y compris commercial. Conservez la notice." },
+  "GPL v3":              { cls: "lic-open",    terms: "Logiciel libre. Modifications à redistribuer sous GPL v3." },
+  "Apache 2.0":          { cls: "lic-open",    terms: "Usage libre et commercial. Conservez la notice Apache." },
+  "Domaine public":      { cls: "lic-open",    terms: "Aucune restriction. Usage totalement libre." },
+  "Tous droits réservés":{ cls: "lic-reserve", terms: "Consultation uniquement. Reproduction interdite sans accord." },
 };
