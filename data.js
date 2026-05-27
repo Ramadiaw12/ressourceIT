@@ -441,6 +441,21 @@ const BOOKS = [
     link_ext: "",
     tags: ["CI/CD", "GitHub Actions", "DevOps", "automatisation"],
   },
+  {
+    id: "b25",
+    title: "Cloud Computing ressources ",
+    author: "Votre Nom",
+    desc: "Pipelines d'intégration et déploiement continus, tests automatisés, déploiement sur cloud et gestion des secrets.",
+    cat: "DevOps",
+    license: "CC BY 4.0",
+    date: "2024-12-20",
+    pages: 220,
+    lang: "Français",
+    cover: "covers/cicd.jpg",
+    link_pdf: "",
+    link_ext: "https://drive.google.com/drive/u/0/folders/1_iB9UnsVlOWvdjKVmtC7b8b26L2ORdVR",
+    tags: ["Docker", "Jenkins", "DevOps", "kubernetes"],
+  },
 
   /* ══════════ INTELLIGENCE ARTIFICIELLE ══════════ */
   {
