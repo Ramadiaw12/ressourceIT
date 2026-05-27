@@ -459,7 +459,7 @@ const BOOKS = [
 
   /* ══════════ INTELLIGENCE ARTIFICIELLE ══════════ */
   {
-    id: "b25",
+    id: "b26",
     title: "Advanced Deep Learning",
     author: "Votre Nom",
     desc: "Régression, classification, clustering, évaluation de modèles et scikit-learn. Du théorème de Bayes aux forêts aléatoires.",
@@ -475,7 +475,7 @@ const BOOKS = [
     featured: true,
   },
   {
-    id: "b26",
+    id: "b27",
     title: "Deep Learning avec TensorFlow et Keras",
     author: "Votre Nom",
     desc: "Réseaux de neurones, CNN, RNN, LSTM et Transformers. Projets de vision par ordinateur et traitement du langage naturel.",
@@ -490,7 +490,7 @@ const BOOKS = [
     tags: ["deep learning", "TensorFlow", "Keras", "CNN", "NLP"],
   },
   {
-    id: "b27",
+    id: "b28",
     title: "Traitement du langage naturel (NLP)",
     author: "Votre Nom",
     desc: "Tokenisation, embeddings, modèles Transformer, BERT et GPT. Applications pratiques : classification de texte, résumé automatique.",
@@ -507,7 +507,7 @@ const BOOKS = [
 
   /* ══════════ MATHÉMATIQUES ══════════ */
   {
-    id: "b28",
+    id: "b29",
     title: "Mathématiques pour l'informatique",
     author: "Votre Nom",
     desc: "Logique, ensembles, combinatoire, probabilités et algèbre linéaire. Bases mathématiques indispensables au développeur.",
@@ -522,7 +522,7 @@ const BOOKS = [
     tags: ["Big data", "Advanced Deep Learning", "Artificial Intelligence", "algèbre"],
   },
   {
-    id: "b29",
+    id: "b30",
     title: "Algèbre linéaire pour le Machine Learning",
     author: "Votre Nom",
     desc: "Vecteurs, matrices, valeurs propres, décomposition SVD et applications directes aux algorithmes de ML.",
@@ -539,7 +539,7 @@ const BOOKS = [
 
   /* ══════════ MOBILE ══════════ */
   {
-    id: "b30",
+    id: "b31",
     title: "Développement Android avec Kotlin",
     author: "Votre Nom",
     desc: "Architecture MVVM, Jetpack Compose, Room, Retrofit et publication sur le Play Store. Développement Android moderne.",
@@ -554,7 +554,7 @@ const BOOKS = [
     tags: ["Android", "Kotlin", "Jetpack Compose", "mobile"],
   },
   {
-    id: "b31",
+    id: "b32",
     title: "Flutter — Applications cross-platform",
     author: "Votre Nom",
     desc: "Widgets, navigation, gestion d'état avec Riverpod, accès aux APIs et déploiement iOS/Android depuis une seule base de code.",
@@ -571,7 +571,7 @@ const BOOKS = [
 
   /* ══════════ LIENS EXTERNES (exemples) ══════════ */
   {
-    id: "b32",
+    id: "b33",
     title: "The Linux Command Line (William Shotts)",
     author: "William E. Shotts Jr.",
     desc: "Référence complète sur la ligne de commande Linux. Disponible gratuitement en ligne sous licence Creative Commons.",
@@ -586,7 +586,7 @@ const BOOKS = [
     tags: ["linux", "terminal", "bash", "commandes"],
   },
   {
-    id: "b33",
+    id: "b34",
     title: "Pro Git (Scott Chacon)",
     author: "Scott Chacon & Ben Straub",
     desc: "Le livre de référence sur Git, disponible gratuitement. Couvre tous les aspects de Git du débutant à l'expert.",
@@ -601,7 +601,7 @@ const BOOKS = [
     tags: ["git", "versionning", "GitHub"],
   },
   {
-    id: "b34",
+    id: "b35",
     title: "Eloquent JavaScript (Marijn Haverbeke)",
     author: "Marijn Haverbeke",
     desc: "Introduction approfondie à JavaScript et à la programmation. Disponible gratuitement en ligne sous licence CC.",
