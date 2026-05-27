@@ -68,7 +68,7 @@ const BOOKS = [
     pages: 420,
     lang: "Français",
     cover: "covers/python-apprendre.jpg",
-    link_pdf: "livres/python-apprendre.pdf",
+    link_pdf: "livres/Apprenez Python.pdf",
     link_ext: "",
     tags: ["python", "débutant", "programmation"],
     featured: true,
