@@ -133,7 +133,7 @@ const BOOKS = [
     pages: 220,
     lang: "Français",
     cover: "covers/graphes.jpg",
-    link_pdf: "livres/theorie-graphes.pdf",
+    link_pdf: "livres/Cours-Classes-Prépas-d_Ing.pdf",
     link_ext: "",
     tags: ["graphes", "algorithmes", "mathématiques"],
   },
