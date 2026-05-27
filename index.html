@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,34 +14,41 @@
 <nav id="navbar">
   <a href="#" class="logo">
     <div class="logo-icon"><i class="ti ti-code"></i></div>
-    TechShare
+    <span class="logo-text">TechShare</span>
   </a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+
   <div class="nav-links" id="navLinks">
     <a href="#ressources">Ressources</a>
     <a href="#categories">Catégories</a>
     <a href="#a-propos">À propos</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="nav-search">
-    <i class="ti ti-search"></i>
-    <input type="text" id="navSearch" placeholder="Rechercher..." autocomplete="off">
+
+  <div class="nav-right">
+    <div class="nav-search">
+      <i class="ti ti-search"></i>
+      <input type="text" id="navSearch" placeholder="Rechercher..." autocomplete="off">
+    </div>
+    <!-- Bouton mode clair/sombre -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">
+      <i class="ti ti-sun"  id="iconSun"></i>
+      <i class="ti ti-moon" id="iconMoon"></i>
+    </button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
   </div>
 </nav>
 
 <!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="hero-content">
-    <div class="hero-badge"><i class="ti ti-shield-check"></i> Ressources vérifiées & libres de droits</div>
+    <div class="hero-badge"><i class="ti ti-shield-check"></i> Ressources vérifiées &amp; libres de droits</div>
     <h1>Toutes mes ressources<br><em>informatiques</em> en un seul endroit</h1>
     <p class="hero-sub">Tutoriels, outils, documentation et cours — partagés dans le respect total des droits d'auteur. Accès libre, attribution claire.</p>
     <div class="hero-actions">
       <a href="#ressources" class="btn btn-primary btn-lg"><i class="ti ti-arrow-down"></i> Voir les ressources</a>
-      <a href="#a-propos" class="btn btn-outline btn-lg">En savoir plus</a>
+      <a href="#a-propos"   class="btn btn-outline btn-lg">En savoir plus</a>
     </div>
-    <div class="hero-stats" id="heroStats">
-      <!-- Rempli automatiquement par JS -->
-    </div>
+    <div class="hero-stats" id="heroStats"></div>
   </div>
   <div class="hero-visual">
     <div class="hero-card-float card-f1"><i class="ti ti-book"></i><span>Cours</span></div>
@@ -58,9 +65,7 @@
       <div class="section-tag">Parcourir</div>
       <h2>Catégories</h2>
     </div>
-    <div class="cat-grid" id="catGrid">
-      <!-- Rempli par JS -->
-    </div>
+    <div class="cat-grid" id="catGrid"></div>
   </div>
 </section>
 
@@ -72,7 +77,6 @@
       <h2>Toutes les ressources</h2>
       <p class="section-sub">Cliquez sur une ressource pour accéder au téléchargement ou au lien externe.</p>
     </div>
-
     <div class="toolbar">
       <div class="search-wrap">
         <i class="ti ti-search"></i>
@@ -86,16 +90,10 @@
         </select>
       </div>
     </div>
-
     <div class="filters" id="filterBar">
       <button class="filter-btn active" data-filter="all">Tout <span class="filter-count" id="countAll"></span></button>
-      <!-- Rempli dynamiquement par JS -->
     </div>
-
-    <div class="resources-grid" id="resourcesGrid">
-      <!-- Rempli dynamiquement par JS -->
-    </div>
-
+    <div class="resources-grid" id="resourcesGrid"></div>
     <div class="no-results" id="noResults" style="display:none">
       <i class="ti ti-mood-empty"></i>
       <p>Aucune ressource trouvée pour cette recherche.</p>
@@ -109,11 +107,6 @@
     <div class="about-text">
       <div class="section-tag">À propos</div>
       <h2>Qui suis-je ?</h2>
-      <!--
-        ╔══════════════════════════════════════════╗
-        ║  MODIFIEZ CE TEXTE AVEC VOS INFORMATIONS ║
-        ╚══════════════════════════════════════════╝
-      -->
       <p>Je suis [Votre Nom], créateur de contenus informatiques passionné. Ce site regroupe l'ensemble de mes ressources pédagogiques — tutoriels, outils et documentation — que je mets à disposition dans le respect des droits d'auteur.</p>
       <p style="margin-top:1rem">Chaque ressource est accompagnée de sa licence afin que vous sachiez exactement ce que vous pouvez en faire.</p>
       <div class="about-badges">
@@ -140,7 +133,9 @@
         <div class="right-icon ri-amber"><i class="ti ti-lock"></i></div>
         <div><strong>Tous droits réservés</strong> — Consultation uniquement</div>
       </div>
-      <a href="https://creativecommons.org/licenses/?lang=fr" target="_blank" class="btn btn-outline" style="margin-top:1.25rem;display:inline-flex;align-items:center;gap:6px;font-size:13px"><i class="ti ti-external-link"></i> En savoir plus sur les licences CC</a>
+      <a href="https://creativecommons.org/licenses/?lang=fr" target="_blank" class="btn btn-outline" style="margin-top:1.25rem;font-size:13px">
+        <i class="ti ti-external-link"></i> En savoir plus sur les licences CC
+      </a>
     </div>
   </div>
 </section>
@@ -151,16 +146,11 @@
     <div class="section-header" style="text-align:center">
       <div class="section-tag">Contact</div>
       <h2>Une question ?</h2>
-      <p class="section-sub" style="margin:0.5rem auto 0">Pour toute question sur les ressources ou les droits d'utilisation, contactez-moi.</p>
+      <p class="section-sub" style="margin:.5rem auto 0">Pour toute question sur les ressources ou les droits d'utilisation, contactez-moi.</p>
     </div>
     <div class="contact-card">
-      <!--
-        ╔═════════════════════════════════════╗
-        ║  MODIFIEZ VOS COORDONNÉES ICI       ║
-        ╚═════════════════════════════════════╝
-      -->
       <a href="mailto:votre@email.com" class="contact-link"><i class="ti ti-mail"></i> votre@email.com</a>
-      <a href="https://github.com/votreprofil" target="_blank" class="contact-link"><i class="ti ti-brand-github"></i> GitHub</a>
+      <a href="https://github.com/votreprofil"  target="_blank" class="contact-link"><i class="ti ti-brand-github"></i> GitHub</a>
       <a href="https://linkedin.com/in/votreprofil" target="_blank" class="contact-link"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
     </div>
   </div>
@@ -169,21 +159,19 @@
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <i class="ti ti-code"></i> TechShare
-    </div>
+    <div class="footer-logo"><i class="ti ti-code"></i> TechShare</div>
     <p class="footer-copy">© <span id="year"></span> — Tous droits réservés. Les ressources sont distribuées selon leurs licences respectives.</p>
     <p class="footer-made">Signaler une violation : <a href="mailto:votre@email.com">votre@email.com</a></p>
   </div>
 </footer>
 
-<!-- ===================== MODAL RESSOURCE ===================== -->
+<!-- ===================== MODAL ===================== -->
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
   <div class="modal-box">
     <button class="modal-close" id="modalClose" aria-label="Fermer"><i class="ti ti-x"></i></button>
     <div class="modal-type-badge" id="modalType"></div>
     <h3 class="modal-title" id="modalTitle"></h3>
-    <p class="modal-desc" id="modalDesc"></p>
+    <p class="modal-desc"  id="modalDesc"></p>
     <div class="modal-meta">
       <div class="meta-row"><span class="meta-label"><i class="ti ti-creative-commons"></i> Licence</span><span class="meta-value" id="modalLicense"></span></div>
       <div class="meta-row"><span class="meta-label"><i class="ti ti-calendar"></i> Date</span><span class="meta-value" id="modalDate"></span></div>

@@ -227,3 +227,19 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
+
+/* ══════════════════════════════════════════════
+   THÈME CLAIR / SOMBRE
+   ══════════════════════════════════════════════ */
+(function initTheme() {
+  const saved = localStorage.getItem('techshare-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next    = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('techshare-theme', next);
+    showToast(next === 'light' ? '☀️ Mode clair activé' : '🌙 Mode sombre activé');
+  });
+})();
