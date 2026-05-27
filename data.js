@@ -40,7 +40,7 @@ const SITE_INFO = {
   name:     "TechShare",
   owner:    "DIAWANE_R",
   tagline:  "Toutes mes ressources informatiques en un seul endroit",
-  email:    "votre@email.com",
+  email:    "superrama86@gmail.com",
   github:   "https://github.com/Ramadiaw12",
   linkedin: "https://www.linkedin.com/in/ramatoulaye-diawane/",
 };
@@ -414,7 +414,7 @@ const BOOKS = [
   /* ══════════ INTELLIGENCE ARTIFICIELLE ══════════ */
   {
     id: "b23",
-    title: "Machine Learning — Fondements et pratique",
+    title: "Advanced Deep Learning",
     author: "Votre Nom",
     desc: "Régression, classification, clustering, évaluation de modèles et scikit-learn. Du théorème de Bayes aux forêts aléatoires.",
     cat: "Intelligence Artificielle",
@@ -423,7 +423,7 @@ const BOOKS = [
     pages: 490,
     lang: "Français",
     cover: "covers/ml.jpg",
-    link_pdf: "livres/machine-learning.pdf",
+    link_pdf: "livres/mdl.pdf",
     link_ext: "",
     tags: ["machine learning", "IA", "scikit-learn", "classification"],
     featured: true,
