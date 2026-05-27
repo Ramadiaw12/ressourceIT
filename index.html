@@ -10,26 +10,24 @@
 </head>
 <body>
 
-<!-- ===================== NAVIGATION ===================== -->
+<!-- ══════════ NAVIGATION ══════════ -->
 <nav id="navbar">
   <a href="#" class="logo">
     <div class="logo-icon"><i class="ti ti-code"></i></div>
     <span class="logo-text">TechShare</span>
   </a>
-
   <div class="nav-links" id="navLinks">
     <a href="#ressources">Ressources</a>
+    <a href="#livres">📚 Livres</a>
     <a href="#categories">Catégories</a>
     <a href="#a-propos">À propos</a>
     <a href="#contact">Contact</a>
   </div>
-
   <div class="nav-right">
     <div class="nav-search">
       <i class="ti ti-search"></i>
       <input type="text" id="navSearch" placeholder="Rechercher..." autocomplete="off">
     </div>
-    <!-- Bouton mode clair/sombre -->
     <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode clair / sombre">
       <i class="ti ti-sun"  id="iconSun"></i>
       <i class="ti ti-moon" id="iconMoon"></i>
@@ -38,28 +36,70 @@
   </div>
 </nav>
 
-<!-- ===================== HERO ===================== -->
+<!-- ══════════ HERO ══════════ -->
 <header class="hero">
   <div class="hero-content">
     <div class="hero-badge"><i class="ti ti-shield-check"></i> Ressources vérifiées &amp; libres de droits</div>
     <h1>Toutes mes ressources<br><em>informatiques</em> en un seul endroit</h1>
-    <p class="hero-sub">Tutoriels, outils, documentation et cours — partagés dans le respect total des droits d'auteur. Accès libre, attribution claire.</p>
+    <p class="hero-sub">Tutoriels, outils, documentation, cours et livres — partagés dans le respect total des droits d'auteur. Accès libre, attribution claire.</p>
     <div class="hero-actions">
-      <a href="#ressources" class="btn btn-primary btn-lg"><i class="ti ti-arrow-down"></i> Voir les ressources</a>
-      <a href="#a-propos"   class="btn btn-outline btn-lg">En savoir plus</a>
+      <a href="#livres"     class="btn btn-primary btn-lg"><i class="ti ti-books"></i> Voir les livres</a>
+      <a href="#ressources" class="btn btn-outline  btn-lg"><i class="ti ti-folder"></i> Toutes les ressources</a>
     </div>
     <div class="hero-stats" id="heroStats"></div>
   </div>
   <div class="hero-visual">
-    <div class="hero-card-float card-f1"><i class="ti ti-book"></i><span>Cours</span></div>
-    <div class="hero-card-float card-f2"><i class="ti ti-tool"></i><span>Outils</span></div>
-    <div class="hero-card-float card-f3"><i class="ti ti-file-text"></i><span>Docs</span></div>
-    <div class="hero-card-float card-f4"><i class="ti ti-article"></i><span>Articles</span></div>
+    <div class="hero-card-float card-f1"><i class="ti ti-books"></i><span>Livres</span></div>
+    <div class="hero-card-float card-f2"><i class="ti ti-book"></i><span>Cours</span></div>
+    <div class="hero-card-float card-f3"><i class="ti ti-tool"></i><span>Outils</span></div>
+    <div class="hero-card-float card-f4"><i class="ti ti-file-text"></i><span>Docs</span></div>
   </div>
 </header>
 
-<!-- ===================== CATÉGORIES ===================== -->
-<section class="section" id="categories">
+<!-- ══════════ SECTION LIVRES ══════════ -->
+<section class="section" id="livres">
+  <div class="section-inner">
+    <div class="section-header books-header">
+      <div>
+        <div class="section-tag">Bibliothèque</div>
+        <h2><i class="ti ti-books" style="color:var(--accent3);font-size:1.6rem;vertical-align:-3px;margin-right:.4rem"></i>Mes livres</h2>
+        <p class="section-sub">Livres PDF et liens externes — chacun avec sa licence clairement indiquée.</p>
+      </div>
+      <div class="books-controls">
+        <div class="search-wrap" style="max-width:260px">
+          <i class="ti ti-search"></i>
+          <input type="text" id="bookSearch" placeholder="Chercher un livre...">
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="viewGrid" title="Grille"><i class="ti ti-layout-grid"></i></button>
+          <button class="view-btn"        id="viewList" title="Liste"><i class="ti ti-list"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtres catégories livres -->
+    <div class="filters" id="bookFilterBar">
+      <button class="filter-btn active" data-bfilter="all">Tous <span class="filter-count" id="bookCountAll"></span></button>
+    </div>
+
+    <!-- Vedettes -->
+    <div id="featuredSection">
+      <div class="featured-label"><i class="ti ti-star-filled"></i> En vedette</div>
+      <div class="books-featured" id="booksFeatured"></div>
+    </div>
+
+    <!-- Grille complète -->
+    <div class="books-grid" id="booksGrid"></div>
+
+    <div class="no-results" id="noBooks" style="display:none">
+      <i class="ti ti-books"></i>
+      <p>Aucun livre trouvé pour cette recherche.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CATÉGORIES ══════════ -->
+<section class="section section-alt" id="categories">
   <div class="section-inner">
     <div class="section-header">
       <div class="section-tag">Parcourir</div>
@@ -69,13 +109,13 @@
   </div>
 </section>
 
-<!-- ===================== RESSOURCES ===================== -->
-<section class="section section-alt" id="ressources">
+<!-- ══════════ AUTRES RESSOURCES ══════════ -->
+<section class="section" id="ressources">
   <div class="section-inner">
     <div class="section-header">
       <div class="section-tag">Bibliothèque</div>
-      <h2>Toutes les ressources</h2>
-      <p class="section-sub">Cliquez sur une ressource pour accéder au téléchargement ou au lien externe.</p>
+      <h2>Autres ressources</h2>
+      <p class="section-sub">Cours, documentation, outils et articles.</p>
     </div>
     <div class="toolbar">
       <div class="search-wrap">
@@ -96,18 +136,18 @@
     <div class="resources-grid" id="resourcesGrid"></div>
     <div class="no-results" id="noResults" style="display:none">
       <i class="ti ti-mood-empty"></i>
-      <p>Aucune ressource trouvée pour cette recherche.</p>
+      <p>Aucune ressource trouvée.</p>
     </div>
   </div>
 </section>
 
-<!-- ===================== À PROPOS ===================== -->
-<section class="section" id="a-propos">
+<!-- ══════════ À PROPOS ══════════ -->
+<section class="section section-alt" id="a-propos">
   <div class="section-inner about-grid">
     <div class="about-text">
       <div class="section-tag">À propos</div>
       <h2>Qui suis-je ?</h2>
-      <p>Je suis [Votre Nom], créateur de contenus informatiques passionné. Ce site regroupe l'ensemble de mes ressources pédagogiques — tutoriels, outils et documentation — que je mets à disposition dans le respect des droits d'auteur.</p>
+      <p>Je suis [Votre Nom], créateur de contenus informatiques passionné. Ce site regroupe l'ensemble de mes ressources pédagogiques — livres, tutoriels, outils et documentation — dans le respect des droits d'auteur.</p>
       <p style="margin-top:1rem">Chaque ressource est accompagnée de sa licence afin que vous sachiez exactement ce que vous pouvez en faire.</p>
       <div class="about-badges">
         <span class="badge badge-blue"><i class="ti ti-creative-commons"></i> Licences ouvertes</span>
@@ -117,22 +157,10 @@
     </div>
     <div class="about-rights">
       <h3>Droits d'auteur — comment ça marche ?</h3>
-      <div class="right-item">
-        <div class="right-icon ri-blue"><i class="ti ti-creative-commons"></i></div>
-        <div><strong>CC BY 4.0</strong> — Usage libre avec attribution obligatoire</div>
-      </div>
-      <div class="right-item">
-        <div class="right-icon ri-green"><i class="ti ti-creative-commons"></i></div>
-        <div><strong>CC BY-NC</strong> — Usage non commercial uniquement</div>
-      </div>
-      <div class="right-item">
-        <div class="right-icon ri-purple"><i class="ti ti-creative-commons"></i></div>
-        <div><strong>CC BY-SA</strong> — Partage dans les mêmes conditions</div>
-      </div>
-      <div class="right-item">
-        <div class="right-icon ri-amber"><i class="ti ti-lock"></i></div>
-        <div><strong>Tous droits réservés</strong> — Consultation uniquement</div>
-      </div>
+      <div class="right-item"><div class="right-icon ri-blue"><i class="ti ti-creative-commons"></i></div><div><strong>CC BY 4.0</strong> — Usage libre avec attribution obligatoire</div></div>
+      <div class="right-item"><div class="right-icon ri-green"><i class="ti ti-creative-commons"></i></div><div><strong>CC BY-NC</strong> — Usage non commercial uniquement</div></div>
+      <div class="right-item"><div class="right-icon ri-purple"><i class="ti ti-creative-commons"></i></div><div><strong>CC BY-SA</strong> — Partage dans les mêmes conditions</div></div>
+      <div class="right-item"><div class="right-icon ri-amber"><i class="ti ti-lock"></i></div><div><strong>Tous droits réservés</strong> — Consultation uniquement</div></div>
       <a href="https://creativecommons.org/licenses/?lang=fr" target="_blank" class="btn btn-outline" style="margin-top:1.25rem;font-size:13px">
         <i class="ti ti-external-link"></i> En savoir plus sur les licences CC
       </a>
@@ -140,23 +168,23 @@
   </div>
 </section>
 
-<!-- ===================== CONTACT ===================== -->
-<section class="section section-alt" id="contact">
+<!-- ══════════ CONTACT ══════════ -->
+<section class="section" id="contact">
   <div class="section-inner" style="max-width:600px">
     <div class="section-header" style="text-align:center">
       <div class="section-tag">Contact</div>
       <h2>Une question ?</h2>
-      <p class="section-sub" style="margin:.5rem auto 0">Pour toute question sur les ressources ou les droits d'utilisation, contactez-moi.</p>
+      <p class="section-sub" style="margin:.5rem auto 0">Pour toute question sur les ressources ou les droits d'utilisation.</p>
     </div>
     <div class="contact-card">
-      <a href="mailto:votre@email.com" class="contact-link"><i class="ti ti-mail"></i> votre@email.com</a>
-      <a href="https://github.com/votreprofil"  target="_blank" class="contact-link"><i class="ti ti-brand-github"></i> GitHub</a>
-      <a href="https://linkedin.com/in/votreprofil" target="_blank" class="contact-link"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+      <a href="mailto:votre@email.com"              class="contact-link"><i class="ti ti-mail"></i> votre@email.com</a>
+      <a href="https://github.com/votreprofil"       target="_blank" class="contact-link"><i class="ti ti-brand-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/votreprofil"  target="_blank" class="contact-link"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
     </div>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
+<!-- ══════════ FOOTER ══════════ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo"><i class="ti ti-code"></i> TechShare</div>
@@ -165,13 +193,41 @@
   </div>
 </footer>
 
-<!-- ===================== MODAL ===================== -->
+<!-- ══════════ MODAL LIVRE ══════════ -->
+<div class="modal-overlay" id="bookModal" role="dialog" aria-modal="true">
+  <div class="modal-box modal-book">
+    <button class="modal-close" id="bookModalClose" aria-label="Fermer"><i class="ti ti-x"></i></button>
+    <div class="modal-book-inner">
+      <div class="modal-book-cover">
+        <img id="bmCover" src="" alt="Couverture" onerror="this.style.display='none';document.getElementById('bmCoverFallback').style.display='flex'">
+        <div class="cover-fallback" id="bmCoverFallback"><i class="ti ti-book-2"></i></div>
+        <div class="modal-book-lang" id="bmLang"></div>
+      </div>
+      <div class="modal-book-info">
+        <span class="card-type-badge type-livre" style="margin-bottom:.75rem"><i class="ti ti-books"></i> Livre</span>
+        <h3 class="modal-title" id="bmTitle"></h3>
+        <p class="modal-book-author" id="bmAuthor"></p>
+        <p class="modal-desc" id="bmDesc"></p>
+        <div class="modal-meta">
+          <div class="meta-row"><span class="meta-label"><i class="ti ti-creative-commons"></i> Licence</span><span class="meta-value" id="bmLicense"></span></div>
+          <div class="meta-row"><span class="meta-label"><i class="ti ti-tag"></i> Catégorie</span><span class="meta-value" id="bmCat"></span></div>
+          <div class="meta-row"><span class="meta-label"><i class="ti ti-file-text"></i> Pages</span><span class="meta-value" id="bmPages"></span></div>
+          <div class="meta-row"><span class="meta-label"><i class="ti ti-calendar"></i> Ajouté le</span><span class="meta-value" id="bmDate"></span></div>
+        </div>
+        <div class="modal-terms" id="bmTerms"></div>
+        <div class="modal-book-actions" id="bmActions"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MODAL RESSOURCE ══════════ -->
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
   <div class="modal-box">
     <button class="modal-close" id="modalClose" aria-label="Fermer"><i class="ti ti-x"></i></button>
     <div class="modal-type-badge" id="modalType"></div>
-    <h3 class="modal-title" id="modalTitle"></h3>
-    <p class="modal-desc"  id="modalDesc"></p>
+    <h3 class="modal-title"  id="modalTitle"></h3>
+    <p  class="modal-desc"   id="modalDesc"></p>
     <div class="modal-meta">
       <div class="meta-row"><span class="meta-label"><i class="ti ti-creative-commons"></i> Licence</span><span class="meta-value" id="modalLicense"></span></div>
       <div class="meta-row"><span class="meta-label"><i class="ti ti-calendar"></i> Date</span><span class="meta-value" id="modalDate"></span></div>
@@ -179,7 +235,7 @@
     </div>
     <div class="modal-terms" id="modalTerms"></div>
     <div class="modal-actions">
-      <a href="#" class="btn btn-primary" id="modalBtn" target="_blank" rel="noopener noreferrer"><i class="ti ti-external-link"></i> Accéder à la ressource</a>
+      <a href="#" class="btn btn-primary" id="modalBtn" target="_blank" rel="noopener noreferrer"><i class="ti ti-external-link"></i> Accéder</a>
       <button class="btn btn-outline" onclick="copyLink()"><i class="ti ti-copy"></i> Copier le lien</button>
     </div>
   </div>
